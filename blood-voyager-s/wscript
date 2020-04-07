@@ -1,0 +1,32 @@
+## -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+def build(bld):   
+  module = bld.create_ns3_module('blood-voyager-s', ['core', 'internet', 'mobility', 'wifi', 'network'])
+  module.source = [  'Bloodvessel.cc',
+  'Bloodstream.cc',
+  'Nanobot.cc',
+  'Bloodcircuit.cc',
+  'PrintNanobots.cc',
+ ]
+  applications_test = bld.create_ns3_module_test_library('blood-voyager-s')
+  applications_test.source = [
+    'test/blood-voyager-s-test.cc',
+    ]
+
+  headers = bld(features='ns3header')
+  headers.module = 'blood-voyager-s'
+  headers.source = [  'Bloodvessel.h',
+  'Bloodstream.h',
+  'Nanobot.h',
+  'Bloodcircuit.h',
+  'PrintNanobots.h',
+ ]
+
+  obj = bld.create_ns3_program('test-blood-voyager-s', ['core', 'internet', 'mobility', 'wifi', 'network', 'blood-voyager-s'])
+  obj.source = [  'start-blood-voyager-s.cc',
+  'Bloodvessel.cc',
+  'Bloodstream.cc',
+  'Nanobot.cc',
+  'Bloodcircuit.cc',
+  'PrintNanobots.cc',
+ ]
