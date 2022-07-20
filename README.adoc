@@ -40,16 +40,20 @@ image::Images/UMLBloodvessel.png[UMLBloodvessel,890, width=50%]
 
 == Tutorial/Get started
 
-=== You’ve already installed ns-3.26 or newer
+=== You’ve already installed ns-3.26
 
-If you’re already using ns-3.26 or a newer version you can download the blood-voyager-s folder and put it in the src folder. In addition, you need to put the vasculature.csv in your ns-3.26 folder. For further instructions see "Run BVS".
+If you’re already using ns-3.26 you can download the blood-voyager-s folder and put it in the src folder. In addition, you need to put the vasculature.csv in your ns-3.26 folder. For further instructions see "Run BVS".
+
+=== You’ve already installed ns-3.36
+
+Take the blood-voyager-s version for ns-3.36. Note that ns3 moved from waf to cmake, so the building and running is different. 
 
 === You're new to ns-3
 
-You need to download the complete ns-3.26 (or newer) and follow the instructions in this  https://www.nsnam.org/docs/tutorial/html/getting-started.html[ns-3 tutorial]. Then you download the blood-voyager-s folder from here and put it in the src folder. In addition, you need to put the vasculature.csv in your ns-3.26 folder. For further instructions see "Run BVS".
+You need to download the complete ns-3.26 (or newer) and follow the instructions in this  https://www.nsnam.org/docs/tutorial/html/getting-started.html[ns-3 tutorial]. Then you download the blood-voyager-s folder from here and put it in the src folder. In addition, you need to put the vasculature.csv in your ns-3.x folder. For further instructions see "Run BVS".
 
 
-== Run BVS
+== Run BVS (till Version ns-3.35)
 You can either write your own main method, or use test-blood-voyager-s. To run our test got to ns-3 folder:  
 
     SIMDURATION=   # simulation duration in seconds
@@ -58,6 +62,17 @@ You can either write your own main method, or use test-blood-voyager-s. To run o
     ./waf --run "test-blood-voyager-s --simulationDuration=$SIMDURATION --numOfNanobots=$NUMOFNANOBOTS --injectionVessel=$INJECTVESSEL"
 
 The simulation returns a csv-file (/ns-3.2x/csvNano.csv) with the position data of the simulated nanobots in every timestep. 
+
+== Run BVS Version ns-3.36
+    SIMDURATION=   # simulation duration in seconds
+    NUMOFNANOBOTS= # number of nanobots
+    INJECTVESSEL=  # injection vessel [1-94]
+    ./ns3 run "start-bvs --simulationDuration=$SIMDURATION, numOfNanobots=$NUMOFNANOBOTS, injectionVessel=$INJECTVESSEL"
+    
+    or with default values
+    ./ns3 run start-bvs
+    
+The simulation returns a csv-file (/ns-3.36/csvNano.csv) with the position data of the simulated nanobots in every timestep. 
 
 == Appendix: Model
 image::Images/table1.pdf[Table,890, width=60%]
