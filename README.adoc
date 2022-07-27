@@ -67,7 +67,7 @@ The simulation returns a csv-file (/ns-3.2x/csvNano.csv) with the position data 
     SIMDURATION=   # simulation duration in seconds
     NUMOFNANOBOTS= # number of nanobots
     INJECTVESSEL=  # injection vessel [1-94]
-    ./ns3 run "start-bvs --simulationDuration=$SIMDURATION, numOfNanobots=$NUMOFNANOBOTS, injectionVessel=$INJECTVESSEL"
+    ./ns3 run "start-bvs --simulationDuration=$SIMDURATION, --numOfNanobots=$NUMOFNANOBOTS, --injectionVessel=$INJECTVESSEL"
     
     or with default values
     ./ns3 run start-bvs
